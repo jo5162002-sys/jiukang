@@ -48,7 +48,7 @@
     menuButton.classList.toggle('active',open);
     menuButton.setAttribute('aria-expanded',String(open));
   });
-  // Public navigation retains its destination. The preview does not send forms.
-  all('form').forEach(form=>form.addEventListener('submit',event=>event.preventDefault()));
+  // Connected inquiry forms are handled by contact-form.js.
+  all('form:not([data-contact-form])').forEach(form=>form.addEventListener('submit',event=>event.preventDefault()));
   all('button').filter(b=>b.textContent.trim()==='TOP').forEach(b=>b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'})));
 })();

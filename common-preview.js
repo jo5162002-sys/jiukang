@@ -1,4 +1,4 @@
-// Local interactions only. Forms never send information to the public website.
+// Shared page interactions. Connected inquiry forms use contact-form.js.
 (() => {
   const all = s => [...document.querySelectorAll(s)];
   if (!document.querySelector('.banner-swiper')) {
@@ -34,7 +34,7 @@
     a.addEventListener('click', show);
     a.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') show(e); });
   });
-  all('form').forEach(form => form.addEventListener('submit', e => {
+  all('form:not([data-contact-form])').forEach(form => form.addEventListener('submit', e => {
     e.preventDefault();
     notice('這是本機預覽，資料尚未送出。需要聯絡久康，請撥 04-2335-0395。');
   }));
