@@ -1,0 +1,16 @@
+/* Loaded only by the two legal drafts; existing pages retain their styles. */
+.proto.legal-page .legal-body { max-width: 880px; padding-top: 0; padding-bottom: clamp(64px, 8vw, 110px); }
+.proto.legal-page .legal-status { margin-top: 24px; color: var(--ink2); font-size: .9rem; }
+.proto.legal-page .legal-section { padding-block: 28px; border-top: 1px solid var(--line); }
+.proto.legal-page .legal-section h2,
+.proto.legal-page .legal-review h2 { font-size: clamp(1.25rem, 2.6vw, 1.65rem); font-weight: 500; margin-bottom: 16px; text-wrap: wrap; }
+.proto.legal-page .legal-body p { margin-block: 12px; }
+.proto.legal-page .legal-body ul { list-style: disc; padding-left: 1.4em; margin-block: 12px; }
+.proto.legal-page .legal-body li + li { margin-top: 12px; }
+.proto.legal-page .legal-body a { text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.proto.legal-page .legal-body strong { font-weight: 600; }
+.proto.legal-page .legal-review { margin-top: 24px; padding: clamp(20px, 4vw, 32px); border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+.proto.legal-page .legal-source { color: var(--ink2); font-size: .9rem; }
+.proto.legal-page .legal-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.proto.legal-page .legal-actions .btn { text-decoration: none; }
+.proto.legal-page [id] { scroll-margin-top: 110px; }

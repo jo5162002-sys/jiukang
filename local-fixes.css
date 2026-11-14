@@ -1,0 +1,103 @@
+/* Keep the original page styles. Move only the mobile social controls into flow. */
+:target { scroll-margin-top: 104px; }
+[data-link-pending] { cursor: help; }
+.preview-notice {
+  position: fixed; inset: auto 16px 16px; z-index: 100;
+  max-width: 600px; margin-inline: auto; padding: 16px;
+  background: #f9f7f2; color: #51463f; border: 1px solid #b5bd6e;
+  border-radius: 12px; box-shadow: 0 4px 16px #0002;
+}
+
+/* Homepage audit: readable contact lines and unobstructed content. */
+.home-preview .contact-info-item,
+.home-preview .footer-contact a {
+  align-items: flex-start;
+  line-height: 1.6;
+}
+.home-preview .contact-info-item span,
+.home-preview .footer-contact a span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.home-preview .footer-brand { min-width: 0; max-width: 100%; }
+.home-preview .preview-social-controls {
+  position: static !important;
+  inset: auto !important;
+  width: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 16px 24px max(16px, env(safe-area-inset-bottom));
+}
+.home-preview .preview-social-controls .sticky-visit {
+  position: static;
+  transform: none;
+  writing-mode: horizontal-tb;
+  border-radius: 12px;
+  padding: 14px 20px;
+}
+.home-preview .preview-social-controls .sticky-visit__icon { margin-top: 0; }
+.home-preview .section-home-faq { padding: 80px 0; }
+@media (min-width: 768px) and (max-width: 991px) {
+  .home-preview .l-service__content-top { gap: 16px; flex-wrap: wrap; }
+  .home-preview .l-service__title { flex-shrink: 0; max-width: 100%; }
+}
+@media (max-width: 767px) {
+  .home-preview .section-home-faq { padding: 50px 0; }
+  .home-preview .pricing-grid { grid-template-columns: minmax(0, 1fr); }
+  .home-preview .pricing-table-wrap { min-width: 0; }
+  .home-preview .pricing-table { table-layout: fixed; }
+  .home-preview .pricing-table th,
+  .home-preview .pricing-table td {
+    padding-inline: 6px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .home-preview .pricing-table th { white-space: normal; }
+  .home-preview .pricing-table th span { display: inline-block; white-space: nowrap; }
+}
+
+/* Homepage quick links: give the copy its own full-width row. */
+.section-quick-links .quick-card {
+  display: flex;
+  height: auto;
+  min-height: 280px;
+}
+.section-quick-links .quick-card__overlay {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  gap: 12px;
+}
+.section-quick-links .quick-card__bottom {
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.section-quick-links .quick-card__bottom p {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+.section-quick-links .quick-card__arrow {
+  align-self: flex-end;
+  margin-top: auto;
+  width: 44px;
+  height: 44px;
+}
+@media (max-width: 767px) {
+  .section-quick-links .quick-card { min-height: 240px; }
+}
+@media (max-width: 767px) {
+  :target { scroll-margin-top: 84px; }
+  .preview-social-controls {
+    position: static !important; inset: auto !important;
+    width: auto; flex-direction: row; justify-content: flex-end;
+    margin: 0; padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+  }
+}

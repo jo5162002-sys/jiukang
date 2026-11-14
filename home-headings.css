@@ -1,0 +1,10 @@
+/* Navigation-section headings only; preserve the photo/text columns. */
+.home-preview .home-about-heading { margin-bottom: 32px; text-align: left; }
+.home-preview .home-about-heading .heading-1 { margin-bottom: 0; }
+.home-preview .pricing-header { text-align: left; }
+.home-preview .pricing-header .p { margin-left: 0; margin-right: 0; }
+.home-preview .home-about-heading .heading-5,
+.home-preview .l-service > .container > .gsap-slide-up,
+.home-preview .news-sidebar,
+.home-preview .team-header > div,
+.home-preview .contact-info { text-align: left; }
