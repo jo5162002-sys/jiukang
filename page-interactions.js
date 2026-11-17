@@ -2,17 +2,17 @@
 if($('#opts')){
 
   var R={
-    day:{t:'日間照顧',d:'白天在久康相聚、活動、好好用餐，傍晚回家，延續與家人的時光。適合有失能或失智情形、白天需要生活協助與陪伴的長輩。',go:'service.html'},
-    home:{t:'居家照顧',d:'照顧服務員到府，依需求協助清潔、沐浴、更衣與備餐，尊重這個家原有的生活秩序。',go:'service-home.html'},
-    night:{t:'臨時夜間住宿',d:'家人出差或需要休息時，可事先聯繫，安排臨時夜間住宿。使用前，我們會先了解長輩的作息與習慣。',go:'service-night.html'},
-    unsure:{t:'先來聊聊',d:'不必先弄懂所有服務名稱。告訴我們長輩平常如何生活、哪些事需要幫忙，我們會說明適合進一步評估的方向。',go:null}
+    day:{t:'日間照顧',d:'白天一起活動、好好吃飯，也留點時間聊天與休息。久康陪長輩度過白天，傍晚回家，分享今天的小事；實際安排會先和家人討論。',go:'service.html'},
+    home:{t:'居家照顧',d:'居家照顧服務員到府，依約定協助沐浴、備餐等日常。先了解長輩的習慣與需要，再確認服務項目與時段，讓照顧配合家裡的生活步調。',go:'service-home.html'},
+    night:{t:'臨時夜間住宿',d:'當家人需要外出或休息，可以先與久康討論短期夜宿。從作息、飲食到夜間協助，一起把照顧交接清楚，並確認可安排的日期與內容。',go:'service-night.html'},
+    unsure:{t:'和久康聊聊',d:'先說說長輩平常怎麼生活、哪些事做起來吃力，以及家人需要協助的時段。久康會陪您了解各項服務，再一起討論下一步。',go:null}
   };
   var vg=$$('#venn g');
   function showResult(k){
     var r=R[k]; if(!r) return;
     $$('#opts .opt').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k?'true':'false')});
     vg.forEach(function(g){g.classList.toggle('on',g.dataset.k===k)});
-    var h='<span class="chip">適合先了解</span><h3>'+r.t+'</h3><p>'+r.d+'</p><div class="cta">';
+    var h='<span class="chip">可以先了解</span><h3>'+r.t+'</h3><p>'+r.d+'</p><div class="cta">';
     if(r.go) h+='<a class="btn sage" href="'+r.go+'">看服務內容</a>';
     h+='<a class="btn ghost plain" href="tel:0423350395">來電諮詢</a></div>';
     $('#result').innerHTML=h;
