@@ -1,14 +1,28 @@
-/* Inner-page main titles use the existing news title typography. */
+/* Inner-page introductions share the approved news and pricing typography. */
 .proto .ph h1,
 .proto .page[data-p="news"] .steps > .wrap > h1,
 .hero-banner[data-v-ad009cee] .hero-banner__title {
   font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   font-weight: 300;
-  letter-spacing: .06em;
-  line-height: 1.35;
+  letter-spacing: .04em;
+  line-height: 1.45;
   text-align: left;
   text-wrap: balance;
+}
+
+.proto .ph .wrap { text-align: left; }
+.proto .ph h1 {
+  max-width: none;
+  margin-bottom: 0;
+}
+.proto .ph h1 + .lead {
+  max-width: 48em;
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: normal;
+  text-align: left;
 }
 
 /* Give the pricing title the same left content edge as the other pages. */
