@@ -1,0 +1,38 @@
+/* Inner pages only: preserve desktop layout and fit existing content on phones. */
+@media (max-width: 767px) {
+  body:not(.home-preview) #footer .footer-brand {
+    min-width: 0;
+    max-width: 100%;
+  }
+  body:not(.home-preview) #footer .footer-contact a {
+    min-width: 0;
+    align-items: flex-start;
+  }
+  body:not(.home-preview) #footer .footer-contact a span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .proto .contact .split > div,
+  .proto .contact .form .r2 > div { min-width: 0; }
+  .proto .contact .lst li { grid-template-columns: 96px minmax(0, 1fr); }
+  .proto .contact .lst li > :last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .pricing-grid[data-v-ad009cee] { grid-template-columns: minmax(0, 1fr); }
+  .pricing-table-wrap[data-v-ad009cee] { min-width: 0; }
+  .pricing-table[data-v-ad009cee] { table-layout: fixed; }
+  .pricing-table td[data-v-ad009cee] { padding-inline: 6px; }
+  .pricing-table th[data-v-ad009cee] { padding-inline: 3px; }
+  .pricing-table td[data-v-ad009cee] { white-space: nowrap; }
+
+  /* Existing inline three-column declarations override the original mobile rule. */
+  .proto .five[style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
