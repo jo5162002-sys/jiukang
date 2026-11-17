@@ -1,0 +1,39 @@
+/* Keep existing content columns and button colors; align section links consistently. */
+.home-preview .home-more-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center !important;
+  gap: 16px;
+  text-align: left;
+}
+.home-preview .home-more-row > .m-btn {
+  justify-self: end;
+  margin: 0;
+  flex-shrink: 0;
+}
+.home-preview .home-more-row .heading-1 { margin-bottom: 0; }
+.home-preview .home-more-heading { margin-bottom: 32px; }
+.home-preview #news .news-sidebar .news-categories { margin-top: 0; }
+.home-preview #news .home-more-title .heading-5 {
+  color: var(--color-kicker, #66703A);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.home-preview #news .home-more-title .heading-1 {
+  color: var(--color-gray-300, #231815);
+  margin-top: 4px;
+}
+.home-preview #contact .home-more-title .heading-5 {
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: .7;
+}
+.home-preview #contact .home-more-title .heading-1 { margin-top: 4px; }
+@media (max-width: 600px) {
+  .home-preview .home-more-row { gap: 12px; }
+  .home-preview .home-more-row > .m-btn {
+    padding-inline: 12px;
+    gap: 8px;
+    font-size: 14px;
+  }
+}
