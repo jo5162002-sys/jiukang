@@ -1,4 +1,29 @@
-/* Inner pages only: preserve desktop layout and fit existing content on phones. */
+/* Inner pages only: preserve desktop layout and fit existing content on smaller screens. */
+/* Tablet contact controls belong below the footer, clear of text and links. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body:not(.home-preview) .preview-social-controls {
+    position: static !important;
+    inset: auto !important;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 16px 24px max(16px, env(safe-area-inset-bottom));
+  }
+  body:not(.home-preview) .preview-social-controls .sticky-visit {
+    position: static;
+    transform: none;
+    writing-mode: horizontal-tb;
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+  body:not(.home-preview) .preview-social-controls .sticky-visit__icon {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 767px) {
   body:not(.home-preview) #footer .footer-brand {
     min-width: 0;
