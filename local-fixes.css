@@ -1,4 +1,9 @@
 /* Keep the original page styles. Move only the mobile social controls into flow. */
+/* Hide the duplicate service-content rule; retain its 1px space and menu borders. */
+.proto .page[data-p="services"] .chap:is(#svc-day, #svc-home, #svc-night, #svc-rehabilitation) {
+  border-top-color: transparent;
+}
+
 :target { scroll-margin-top: 104px; }
 [data-link-pending] { cursor: help; }
 .preview-notice {
