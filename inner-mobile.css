@@ -1,6 +1,6 @@
 /* Inner pages only: preserve desktop layout and fit existing content on smaller screens. */
-/* Tablet contact controls belong below the footer, clear of text and links. */
-@media (min-width: 768px) and (max-width: 1199px) {
+/* Keep controls below the footer until the desktop side gutter fits them. */
+@media (min-width: 768px) and (max-width: 1359px) {
   body:not(.home-preview) .preview-social-controls {
     position: static !important;
     inset: auto !important;
