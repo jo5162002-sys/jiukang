@@ -1,0 +1,152 @@
+/* Inner pages use the news palette with distinct title and content bands.
+   This stylesheet is loaded only by inner pages, never by the homepage. */
+.proto .page[data-p] {
+  background-color: var(--bg);
+}
+.proto .page[data-p] .ph,
+.pricing-page .pricing-introduction .ph {
+  background-color: var(--bg2);
+}
+.proto .page:is([data-p="services"], [data-p="news"]) .tabs-w {
+  background-color: var(--bg);
+  /* Keep the menu dimensions while removing the two horizontal rules. */
+  border-block-color: transparent;
+}
+
+/* Keep each page's existing sections and use their content roles to alternate color. */
+.proto .page[data-p="about"] > .sec {
+  background-color: var(--bg2);
+}
+.proto .page[data-p="about"] > .sec.finder,
+.proto .page[data-p="about"] > .sec[aria-labelledby="h-five"] {
+  background-color: var(--bg);
+}
+.proto .page.team-page .team-section {
+  background-color: var(--bg);
+}
+.proto .page.team-page .team-section.steps {
+  background-color: var(--bg2);
+}
+.proto .page[data-p="services"] #svc-cal,
+.proto .page[data-p="news"] > .sec.steps {
+  background-color: var(--bg);
+}
+
+/* The contact form uses the same light content area and cream surfaces as news cards. */
+.proto .page[data-p="contact"] .contact {
+  --c-ink: var(--ink);
+  --c-mute: var(--ink2);
+  --c-line: var(--line);
+  --c-field: var(--surface);
+  background-color: var(--bg);
+  color: var(--ink);
+}
+.proto .page[data-p="contact"] .contact .eyebrow {
+  color: var(--sage-ink);
+}
+.proto .page[data-p="contact"] .form label,
+.proto .page[data-p="contact"] .contact .lst li > span:first-child {
+  color: var(--ink);
+}
+.proto .page[data-p="contact"] .form :is(input, textarea)::placeholder {
+  color: var(--ink2);
+}
+.proto .page[data-p="contact"] .form :is(input, select, textarea):focus {
+  border-color: var(--sage-ink);
+}
+.proto .page[data-p="contact"] .form .btn {
+  background-color: var(--btn-bg);
+  border-color: var(--btn-bg);
+  color: var(--btn-ink);
+}
+.proto .page[data-p="contact"] .contact .chip {
+  background-color: var(--chip-bg);
+  color: var(--chip-ink);
+}
+
+/* Resolve the shared page tokens before the calculator's local control overrides. */
+.pricing-page {
+  --inner-bg: var(--color-page);
+  --inner-bg2: var(--color-brown-light);
+  --inner-surface: var(--color-surface);
+  --inner-ink: var(--color-gray-300);
+  --inner-line: var(--color-gray-100);
+  --inner-action: var(--color-primary);
+}
+.pricing-page .pricing-introduction,
+.pricing-page .section-calculator {
+  background-color: var(--inner-bg2);
+}
+.pricing-page .section-pricing {
+  background-color: var(--inner-bg);
+}
+.pricing-page .calculator-body [data-fee-summary] {
+  --color-accent: var(--inner-action);
+  --color-accent-light: var(--inner-action);
+  background-color: var(--inner-bg2);
+  color: var(--inner-ink);
+}
+.pricing-page .calculator-body [data-fee-summary] :is([class~="text-white/60"], [class~="text-white/70"]) {
+  color: var(--inner-action);
+}
+.pricing-page .calculator-body [data-fee-summary] [class~="bg-white/10"] {
+  background-color: var(--inner-surface);
+}
+.pricing-page .calculator-body [data-fee-summary] [class~="border-white/20"] {
+  border-color: var(--inner-line);
+}
+/* The existing red, bold excess notice remains independent of the shared palette. */
+
+/* Follow the news page's dark appearance without losing result or warning contrast. */
+@media (prefers-color-scheme: dark) {
+  .pricing-page {
+    --inner-action: var(--color-gray-300);
+  }
+  .pricing-page .calculator-body [data-fee-summary] .fee-excess-warning {
+    color: #FFB4A9;
+  }
+}
+
+/* Approved contact-band colors; keep the footer and page geometry unchanged. */
+.proto > .cta-band,
+.pricing-page .section-cta {
+  --cta-band-bg: #F4EBDD;
+  --cta-band-ink: #4A3D36;
+  --cta-band-muted: #62544B;
+  --cta-action-bg: #54463F;
+  --cta-action-ink: #F6F2EA;
+  background-color: var(--cta-band-bg);
+  color: var(--cta-band-ink);
+}
+.proto > .cta-band h2,
+.pricing-page .section-cta .cta-title {
+  color: var(--cta-band-ink);
+}
+.proto > .cta-band p,
+.pricing-page .section-cta p {
+  color: var(--cta-band-muted);
+}
+.proto > .cta-band > .o,
+.pricing-page .section-cta::before {
+  background-color: rgba(197, 204, 136, .22);
+}
+.proto > .cta-band .acts > .btn,
+.proto > .cta-band .acts > .btn:hover,
+.pricing-page .section-cta .cta-actions > .m-btn,
+.pricing-page .section-cta .cta-actions > .m-btn:hover {
+  background-color: var(--cta-action-bg);
+  border-color: var(--cta-action-bg);
+  color: var(--cta-action-ink);
+}
+.proto > .cta-band .acts > .btn.ghost,
+.proto > .cta-band .acts > .btn.ghost:hover,
+.pricing-page .section-cta .cta-actions > .m-btn--white,
+.pricing-page .section-cta .cta-actions > .m-btn--white:hover {
+  background-color: transparent;
+  border-color: var(--cta-action-bg);
+  color: var(--cta-action-bg);
+}
+.proto > .cta-band :focus-visible,
+.pricing-page .section-cta :focus-visible {
+  outline-color: var(--cta-action-bg);
+}

@@ -1,0 +1,295 @@
+/* Pricing follows the existing inner-page typography and section palette. */
+.pricing-page > :is(.section-pricing, .section-calculator, .section-cta) {
+  padding-block: clamp(40px, 5vw, 72px);
+}
+.pricing-page > section > .container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+.pricing-page .section-pricing { background: var(--color-brown-light, #E8E2D7); }
+.pricing-page .section-calculator { background: var(--color-page, #F1EDE6); }
+/* Copayment information belongs to the same fee section and shares its background. */
+.pricing-page .section-copay {
+  margin-top: clamp(36px, 5vw, 56px);
+  padding: 0;
+  background: transparent;
+}
+
+.pricing-page :is(.pricing-header, .copay-header) {
+  text-align: left;
+  margin-bottom: 32px;
+}
+.pricing-page :is(.pricing-header, .calculator-header__text) .heading-5 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 12px;
+  color: var(--color-kicker, #66703A);
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: .2em;
+}
+.pricing-page :is(.pricing-header, .calculator-header__text) .heading-5::before {
+  content: "";
+  flex: 0 0 34px;
+  height: 1px;
+  background: currentColor;
+}
+.pricing-page :is(.pricing-header, .copay-header, .calculator-header__text) > .heading-1 {
+  margin: 0;
+  color: var(--color-gray-300, #4A3D36);
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  font-size: clamp(1.375rem, 1rem + 1.1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-align: left;
+}
+.pricing-page :is(.pricing-header, .calculator-header__text) > .p {
+  max-width: 38em;
+  margin-top: 14px;
+  color: var(--color-gray-200, #75675E);
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: normal;
+  text-align: left;
+  text-wrap: pretty;
+}
+
+/* Retain the original figures and dark table headers. */
+.pricing-page .pricing-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+  margin: 0;
+  gap: 24px;
+}
+.pricing-page .pricing-table-wrap { min-width: 0; }
+.pricing-page .pricing-table { table-layout: fixed; }
+.pricing-page .pricing-table :is(th, td) {
+  padding: 14px 12px;
+  font-size: 15px;
+}
+.pricing-page .pricing-table .table-title { padding: 18px 12px; font-size: 18px; }
+.pricing-page .pricing-footer,
+.pricing-page .copay-note {
+  margin-top: 24px;
+  text-align: left;
+}
+.pricing-page .pricing-footer .small,
+.pricing-page .copay-note {
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: normal;
+}
+.pricing-page .copay-grid { max-width: none; margin: 0; gap: 24px; }
+.pricing-page .copay-card { text-align: left; padding: 28px 24px; }
+.pricing-page .copay-card__pct { justify-content: flex-start; }
+.pricing-page .copay-card__label { font-size: 18px; font-weight: 500; }
+.pricing-page .copay-card__desc { font-size: 15px; line-height: 1.8; }
+
+/* Only reposition the calculator container; its controls and DOM order stay intact. */
+.pricing-page .calculator-header {
+  max-width: none;
+  margin: 0 0 28px;
+  padding: 0;
+  text-align: left;
+}
+/* Keep reset aligned with the centered controls while the introduction aligns left. */
+.pricing-page .calculator-header .reset-btn {
+  margin-inline-end: max(0px, calc((100% - 48rem) / 2));
+}
+.pricing-page .calculator-header__text { min-width: 0; }
+.pricing-page .calculator-body {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Align the final contact band with the other inner pages; retain its copy and colors. */
+.pricing-page .section-cta {
+  position: relative;
+  overflow: hidden;
+}
+.pricing-page .section-cta::before {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -120px;
+  width: 360px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(197, 204, 136, .16);
+  pointer-events: none;
+}
+.pricing-page .cta-inner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
+  text-align: left;
+}
+.pricing-page .cta-copy {
+  flex: 1 1 26rem;
+  min-width: 0;
+  max-width: 100%;
+}
+.pricing-page .cta-title {
+  margin: 0;
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: .04em;
+  text-wrap: balance;
+}
+.pricing-page .cta-description {
+  margin: 8px 0 0;
+  font-family: Jost, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: normal;
+}
+.pricing-page .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 100%;
+}
+.pricing-page .cta-actions > .m-btn {
+  flex: 0 0 auto;
+  max-width: 100%;
+  height: auto;
+  min-height: 44px;
+  padding: .85em 1.7em;
+  gap: .7em;
+  border-radius: 999px;
+  font-family: Jost, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: .95rem;
+  line-height: 1.9;
+  letter-spacing: .1em;
+}
+/* Use the same arrow treatment as the shared buttons, following the existing text color. */
+.pricing-page .cta-actions > .m-btn::after {
+  content: "→";
+  transition: transform .3s;
+}
+.pricing-page .cta-actions > .m-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(60, 45, 36, .5) 0 12px 24px -14px;
+}
+.pricing-page .cta-actions > .m-btn:hover::after { transform: translateX(4px); }
+.pricing-page .cta-actions .num { font-variant-numeric: tabular-nums; }
+.pricing-page .cta-actions > .m-btn--call,
+.pricing-page .cta-actions > .m-btn--call:hover {
+  background: #C5CC88;
+  border-color: #C5CC88;
+  color: #3F3A2E;
+}
+.pricing-page .cta-actions > .m-btn--white,
+.pricing-page .cta-actions > .m-btn--white:hover {
+  background: transparent;
+  border-color: #8F8173;
+  color: #F3EDE0;
+}
+@media (max-width: 1023px) {
+  .pricing-page .pricing-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 639px) {
+  .pricing-page .copay-grid { grid-template-columns: minmax(0, 1fr); }
+  .pricing-page .calculator-header .reset-btn { align-self: flex-start; margin-top: 0; }
+  .pricing-page .pricing-table :is(th, td) { padding: 12px 6px; font-size: 14px; }
+  .pricing-page .pricing-table .table-title { padding: 16px 12px; font-size: 18px; }
+}
+
+/* Calculator palette: cream cards, brown selections and warm neutral results. */
+.pricing-page .calculator-body {
+  --color-primary: #3F342E;
+  --color-primary-light: #54463F;
+  --color-brown: #54463F;
+  --color-accent: #66703A;
+  --color-accent-light: #F4F1C8;
+  --color-accent-pale: #F1EDE6;
+  --color-gray-100: #D8CFC1;
+  --color-brown-light: #E8E2D7;
+  --color-brown-lighter: #F1EDE6;
+  --color-white: #FFFFFF;
+  color: var(--color-primary);
+}
+.pricing-page .calculator-body > section.bg-white { background: #FAF8F3; }
+.pricing-page .calculator-body .opacity-70 { opacity: 1; }
+.pricing-page .calculator-body :is([data-identity], [data-service-kind], [data-period]) {
+  border-color: #8C7C6F;
+  background: #FFFFFF;
+  color: #3F342E;
+}
+.pricing-page .calculator-body :is([data-identity], [data-service-kind], [data-period]) :is(span, svg) {
+  color: inherit;
+}
+.pricing-page .calculator-body :is([data-identity], [data-service-kind], [data-period]):not([aria-pressed="true"]):not(:disabled):hover {
+  border-color: #54463F;
+  background: #E8E2D7;
+}
+.pricing-page .calculator-body :is([data-identity], [data-service-kind], [data-period])[aria-pressed="true"] {
+  border-color: #54463F;
+  background: #54463F;
+  color: #FFFFFF;
+  --tw-ring-color: #54463F;
+}
+.pricing-page .calculator-body [data-identity][aria-pressed="true"] > .absolute {
+  background: #F4F1C8;
+}
+.pricing-page .calculator-body :is(select, input[type="number"]) {
+  border-color: #8C7C6F;
+  background-color: #FFFFFF;
+  color: #3F342E;
+}
+.pricing-page .calculator-body input[type="range"] { accent-color: #54463F; }
+.pricing-page .calculator-body :is([data-day-change], [data-quantity-change]) {
+  color: #3F342E;
+  border-color: #8C7C6F;
+}
+.pricing-page .calculator-body :is([data-day-change], [data-quantity-change]):not(:disabled):hover {
+  background: #54463F;
+  border-color: #54463F;
+  color: #FFFFFF;
+}
+.pricing-page .calculator-body button:disabled {
+  opacity: 1;
+  background: #E8E2D7;
+  border-color: #D8CFC1;
+  color: #75675E;
+  cursor: not-allowed;
+}
+.pricing-page .calculator-body :is(button, select, input):focus-visible {
+  outline: 3px solid #54463F;
+  outline-offset: 3px;
+}
+
+/* Shared warm neutral palette for all service summaries. */
+.pricing-page .calculator-body [data-fee-summary] {
+  --color-accent: #6B3F27;
+  --color-accent-light: #6B3F27;
+  background: #E8E2D7;
+  color: #3F342E;
+}
+.pricing-page .calculator-body [data-fee-summary] :is([class~="text-white/60"], [class~="text-white/70"]) {
+  color: #54463F;
+}
+.pricing-page .calculator-body [data-fee-summary] [class~="bg-white/10"] {
+  background: #FFFCF6;
+}
+.pricing-page .calculator-body [data-fee-summary] [class~="border-white/20"] {
+  border-color: #BCAB98;
+}
+
+/* Highlight only the excess allowance notice. */
+.pricing-page .calculator-body [data-fee-summary] .fee-excess-warning {
+  color: #B42318;
+  font-weight: 700;
+}

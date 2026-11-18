@@ -5,6 +5,11 @@
     location.replace('service-day-life.html#day');
     return;
   }
+  // Keep existing course-calendar bookmarks working after the move.
+  if (['#svc-cal', '#h-cal'].includes(location.hash) && !document.getElementById('svc-cal')) {
+    location.replace('service-courses.html' + location.search + location.hash);
+    return;
+  }
   const tabs = document.getElementById('stabs');
   const selected = tabs?.querySelector('[aria-current="page"]');
   if (!tabs || !selected) return;

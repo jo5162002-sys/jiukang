@@ -44,13 +44,28 @@
     body.hidden = !expanded; b.setAttribute('aria-expanded', String(expanded));
     b.textContent = expanded ? '收合內容' : '閱讀全文';
   }));
+  // Keep the selected category visible in the horizontally scrolling news menu.
+  const revealNewsCategory = () => {
+    const filters = document.querySelector('.nfs.tabs');
+    const selected = filters?.querySelector('.nf.on');
+    if (!selected) return;
+    const view = filters.getBoundingClientRect();
+    const item = selected.getBoundingClientRect();
+    if (item.right > view.right) filters.scrollLeft += item.right - view.right;
+    else if (item.left < view.left) filters.scrollLeft -= view.left - item.left;
+  };
   all('.nf').forEach(b => b.addEventListener('click', () => {
     const filter = b.dataset.f || b.dataset.c || 'all';
     all('.nf').forEach(x => {x.setAttribute('aria-pressed',String(x===b));x.classList.toggle('on',x===b);});
     all('.post').forEach(p => {p.hidden = filter!=='all' && p.dataset.c!==filter;});
     const empty = document.querySelector('#nempty');
     if(empty) empty.hidden = all('.post').some(p=>!p.hidden);
+    revealNewsCategory();
   }));
+  if (document.querySelector('.nfs.tabs')) {
+    document.fonts?.ready.then(revealNewsCategory);
+    window.addEventListener('resize', revealNewsCategory);
+  }
   all('[data-news-category]').forEach(link => {
     const go = () => { location.href='news.html?category='+encodeURIComponent(link.dataset.newsCategory); };
     link.addEventListener('click',go);

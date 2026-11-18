@@ -1,0 +1,149 @@
+/* Team page only: keep the existing palette, copy and original photographs. */
+/* Alternate the same warm backgrounds used by the About page. */
+.proto .team-page .team-section {
+  padding-block: clamp(40px, 5vw, 72px);
+  background: var(--bg2);
+}
+.proto .team-page .team-section.steps { background: var(--bg); }
+.proto .team-page .ph .lead { text-wrap: balance; }
+.proto .team-page .team-subtitle-phrase { display: inline-block; max-width: 100%; }
+.proto .team-page .team-section-heading {
+  max-width: 48rem;
+  margin-bottom: 28px;
+}
+.proto .team-page .team-section h2 {
+  font-size: clamp(1.375rem, 1rem + 1.1vw, 2rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-align: left;
+}
+.proto .team-page .team-title-line { display: block; }
+.proto .team-page .team-section .eyebrow { margin-bottom: 12px; }
+.proto .team-page .team-section p { text-align: left; text-wrap: pretty; }
+.proto .team-page .team-section .lead {
+  max-width: 38em;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* Three clear principles, with no competing dots or decorative rules. */
+.proto .team-page .five {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+.proto .team-page .five > div {
+  min-width: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.proto .team-page .five > div::before { content: none; }
+.proto .team-page .five h3 {
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .02em;
+}
+.proto .team-page .five p { font-size: 17px; line-height: 1.85; }
+.proto .team-page .split {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+.proto .team-page .split > div { min-width: 0; }
+
+/* Keep each member's photo, name and details together in an equal-width card. */
+.proto .team-page .mems {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.proto .team-page .mem {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.proto .team-page .mem .pic {
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  border-radius: 0;
+}
+.proto .team-page .member-info { min-width: 0; padding: 24px; }
+.proto .team-page .mem h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+/* Names lead each card; roles sit directly below in the existing supporting color. */
+.proto .team-page .member-name { display: block; }
+.proto .team-page .member-name-divider { display: none; }
+.proto .team-page .mem .member-role {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
+  color: var(--ink2);
+}
+.proto .team-page .mem dt { font-weight: 500; white-space: nowrap; }
+.proto .team-page .mem .mt {
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.proto .team-page .mem dl {
+  grid-template-columns: 6em minmax(0, 1fr);
+  gap: 10px 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.8;
+}
+.proto .team-page .mem dt,
+.proto .team-page .mem dd { min-width: 0; overflow-wrap: anywhere; }
+.proto .team-page .mem .chip {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink2);
+  font: inherit;
+  letter-spacing: normal;
+}
+.proto .team-page .mems + .tiny {
+  margin-top: 24px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* On tablets, use a complete photo-and-details row for each member. */
+@media (max-width: 1023px) {
+  .proto .team-page .five { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .proto .team-page .split { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .proto .team-page .mems { grid-template-columns: minmax(0, 1fr); }
+  .proto .team-page .mem {
+    display: grid;
+    grid-template-columns: minmax(180px, .8fr) minmax(0, 1.2fr);
+  }
+  .proto .team-page .mem .pic { aspect-ratio: auto; min-height: 300px; }
+}
+@media (max-width: 599px) {
+  .proto .team-page .team-section-heading { margin-bottom: 24px; }
+  .proto .team-page .mem { display: block; }
+  .proto .team-page .mem .pic {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    max-height: 320px;
+  }
+  .proto .team-page .mem .asset-photo { object-position: center 25%; }
+  .proto .team-page .member-info { padding: 20px; }
+  .proto .team-page .mem h3 { font-size: 19px; }
+  .proto .team-page .mem dl { gap: 8px 12px; }
+}

@@ -1,0 +1,286 @@
+/* Shared spacing for inner pages only. Keep content, colors and section order. */
+.proto,
+.pricing-page {
+  --inner-section-space: clamp(40px, 5vw, 72px);
+  --inner-heading-gap: clamp(24px, 2.5vw, 28px);
+  --inner-card-gap: 24px;
+  --inner-menu-space: 16px;
+}
+
+/* News uses the same title-area spacing as the other inner pages. */
+.proto .page[data-p="news"] .news-page-heading {
+  padding-block: clamp(44px, 7vw, 96px) clamp(40px, 5vw, 72px);
+}
+.proto .page[data-p="news"] .news-list-content {
+  padding-top: var(--inner-section-space);
+}
+.proto .page:is([data-p="services"], [data-p="news"]) .tabs {
+  padding-block: var(--inner-menu-space);
+  gap: 8px;
+}
+/* News filters share the services menu row, including horizontal scrolling. */
+.proto .page[data-p="news"] .nfs.tabs {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 0;
+}
+.proto .page[data-p="news"] .nfs.tabs .nf {
+  flex: 0 0 auto;
+  padding: .55em 1.4em;
+  font-size: .95rem;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.proto .page[data-p="news"] > .sec.steps {
+  /* This section contains the header, so retain its existing zero top padding. */
+  padding-bottom: var(--inner-section-space) !important;
+}
+
+/* Service chapters use one layer of section spacing instead of nested blank space. */
+.proto .page[data-p="services"] > .sp > .sec {
+  /* Existing pages have inline padding; only these outer sections override it. */
+  padding-block: var(--inner-section-space) !important;
+}
+.proto .page[data-p="services"] .chap {
+  margin-block: 0;
+  padding-block: 0;
+  align-items: start;
+}
+.proto .page[data-p="services"] .chap h3 {
+  text-wrap: balance;
+}
+.proto .page[data-p="services"] .service-title-phrase {
+  display: inline-block;
+  max-width: 100%;
+}
+.proto .page[data-p="services"] .chap .tg {
+  text-wrap: pretty;
+}
+.proto .page[data-p="services"] > .sp > .sec > .wrap > div.rv:first-child {
+  margin-bottom: var(--inner-heading-gap) !important;
+}
+.proto .page[data-p="services"] > .sp > .sec > .wrap > div.rv:first-child > h2 {
+  margin-bottom: 0 !important;
+}
+.proto .page[data-p="services"] > .sp > .sec > .wrap > div.rv:first-child > .lead {
+  margin-block: 14px 0 !important;
+}
+.proto .page[data-p="services"] > .sp > .sec > .wrap > :is(.five, .faq, .stp) {
+  margin-top: 0;
+}
+
+/* The About page's inline zero-padding joins remain intact. */
+.proto .page[data-p="about"] > .sec,
+.proto .page[data-p="contact"] > .contact {
+  padding-block: var(--inner-section-space);
+}
+.proto .page[data-p="about"] #h-why + .lead {
+  margin-top: 14px !important;
+}
+.proto .page[data-p="about"] :is(#env .plates, .five) {
+  margin-top: var(--inner-heading-gap);
+}
+/* Contain the gallery's top margin so it cannot expose a different-color strip. */
+.proto .page[data-p="about"] #env > .wrap {
+  display: flow-root;
+}
+
+/* Keep headings and card groups on the same spacing rhythm. */
+.proto .page .sec-h,
+.proto .team-page .team-section-heading,
+.pricing-page :is(.pricing-header, .copay-header, .calculator-header) {
+  margin-bottom: var(--inner-heading-gap);
+}
+.proto .team-page .five {
+  margin-top: 0;
+  gap: var(--inner-card-gap);
+}
+.proto .page :is(.posts, .svc-grid, .tiles, .mems) {
+  gap: var(--inner-card-gap);
+}
+.proto .page[data-p="news"] .posts {
+  align-items: stretch;
+}
+.proto .page[data-p="news"] .post .pr {
+  margin-top: auto;
+}
+
+/* Align reading columns with the title; preserve their existing readable widths. */
+.proto .page[data-p="faq"] > #faq {
+  padding-block: var(--inner-section-space) !important;
+}
+.proto .page[data-p="faq"] #faq > .wrap {
+  max-width: 1180px !important;
+}
+.proto .page[data-p="faq"] #faq .faq {
+  max-width: 800px;
+  margin: 0;
+  gap: 16px;
+}
+.proto.news-detail .news-reading {
+  max-width: 1180px;
+  padding-block: var(--inner-section-space);
+}
+.proto.news-detail .news-reading > article {
+  max-width: 920px;
+}
+.proto.legal-page .legal-body {
+  max-width: 1180px;
+  /* Include the first section's half-gap and 1px rule in the outer top spacing. */
+  padding-top: calc(var(--inner-section-space) / 2 - 1px);
+  padding-bottom: var(--inner-section-space);
+}
+.proto.legal-page .legal-body > * {
+  max-width: 800px;
+}
+
+@media (max-width: 767px) {
+  .proto,
+  .pricing-page {
+    --inner-card-gap: 20px;
+    --inner-menu-space: 12px;
+  }
+  /* Inline three-column service lists must also stack on larger phones. */
+  .proto .page[data-p="services"] .five[style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Section labels use the same small green heading treatment as the other inner pages. */
+.proto .inner-section-label {
+  font-family: var(--sans);
+  line-height: 1.9;
+}
+
+/* Service section labels share one treatment; timeline time markers keep their own style. */
+.proto .page[data-p="services"] :is(.eyebrow, .chap .when, .svc .when, .tiles > .tile > small) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 18px;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: .24em;
+  text-align: left;
+  color: var(--sage-ink);
+}
+.proto .page[data-p="services"] :is(.eyebrow, .chap .when, .svc .when, .tiles > .tile > small)::before {
+  content: "";
+  flex: 0 0 34px;
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Keep short rules at their original width when longer English labels wrap. */
+.proto .eyebrow::before {
+  flex-shrink: 0;
+}
+
+/* Match the fee page's responsive size for Chinese section titles below English labels. */
+.proto .page .eyebrow + :is(h2, h3),
+.proto .page[data-p="services"] .chap .when + h3 {
+  font-size: clamp(1.375rem, 1rem + 1.1vw, 2rem);
+}
+
+/* Match pricing: 12px from a section label to its title, then 14px to its intro. */
+.proto .page[data-p] :is(.eyebrow, .chap .when):has(+ :is(h2, h3)) {
+  margin-block: 0 12px;
+}
+.proto .page .eyebrow + :is(h2, h3),
+.proto .page[data-p="services"] .chap .when + h3 {
+  margin-block: 0;
+}
+.proto .page .eyebrow + :is(h2, h3) + p,
+.proto .page[data-p="services"] .chap .when + h3 + p {
+  /* Existing introductions include inline margins; keep the override scoped here. */
+  margin-top: 14px !important;
+}
+/* This team introduction keeps its existing two wrappers in a single-column grid. */
+.proto .team-page .team-section.steps > .wrap > .split {
+  row-gap: 14px;
+}
+
+/* Use the shared heading-to-content gap for photos, cards and other content groups. */
+.proto .page:is([data-p="news"], [data-p="faq"])
+  .inner-section-label:has(+ :is(.posts, .faq)),
+.proto.news-detail .news-content-section
+  > h2:has(+ :is(.news-gallery, .news-video-list)),
+.proto .page[data-p="about"] .ask,
+.proto .page[data-p="services"] #svc-cal > .wrap > .samp {
+  margin-bottom: var(--inner-heading-gap);
+}
+.proto .page[data-p="about"] #venn {
+  /* The original SVG includes an inline top margin. */
+  margin-top: var(--inner-heading-gap) !important;
+}
+.proto .page[data-p="contact"] .contact .lst {
+  margin-top: var(--inner-heading-gap);
+}
+.proto .page[data-p="contact"] .contact p:has(+ .form) {
+  /* Override only the existing inline space before the form. */
+  margin-bottom: var(--inner-heading-gap) !important;
+}
+@media (max-width: 820px) {
+  /* Match the stacked photo/text gap without changing desktop columns. */
+  .proto .page[data-p="services"] .chap {
+    row-gap: var(--inner-heading-gap);
+  }
+}
+
+/* Finish the shared vertical rhythm for independent content blocks. */
+.proto > .cta-band > .wrap {
+  padding-block: var(--inner-section-space);
+}
+.pricing-page .section-copay {
+  /* Copay stays inside the existing fees section. */
+  margin-top: var(--inner-section-space);
+}
+
+/* Bottom contact buttons share the pricing page's size, gap and alignment. */
+.proto > .cta-band > .wrap > div:not(.acts) {
+  flex: 1 1 26rem;
+  min-width: 0;
+  max-width: 100%;
+}
+.proto > .cta-band .acts {
+  max-width: 100%;
+  gap: 12px;
+}
+.proto > .cta-band .acts > .btn {
+  flex: 0 0 auto;
+  max-width: 100%;
+  height: auto;
+  min-height: 44px;
+  padding: .85em 1.7em;
+  gap: .7em;
+  border-radius: 999px;
+  font-size: .95rem;
+  line-height: 1.9;
+  letter-spacing: .1em;
+}
+
+/* Reading sections split one block gap around their existing divider. */
+.proto.news-detail .news-reading > article > .news-content-section:not(:first-child) {
+  margin-top: calc(var(--inner-section-space) / 2);
+  padding-top: calc(var(--inner-section-space) / 2);
+}
+.proto.news-detail .news-reading > article > :is(.news-copy, .news-content-section) > :last-child,
+.proto.legal-page .legal-body > .legal-section > :last-child {
+  /* The block owns its trailing space; keep paragraph-to-paragraph margins intact. */
+  margin-bottom: 0;
+}
+.proto.legal-page .legal-body > .legal-section {
+  padding-block: calc(var(--inner-section-space) / 2);
+}
+.proto.legal-page .legal-body > .legal-review {
+  /* The preceding legal section contributes the other half of this gap. */
+  margin-top: calc(var(--inner-section-space) / 2);
+}
+.proto.news-detail .news-reading > article > .news-copy,
+.proto.news-detail .news-detail-actions,
+.proto.legal-page .legal-actions {
+  margin-top: var(--inner-section-space);
+}

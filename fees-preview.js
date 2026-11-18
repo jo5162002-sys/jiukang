@@ -66,10 +66,16 @@
     }
     const q=Object.fromEntries(Object.entries(state.q).filter(([code])=>activeCodes.includes(code)));
     const result=window.JiukangFees.calculate(config,{...state,days:kind==='day'?state.days:0,q});
+    summary.dataset.summaryKind=kind;
     summary.querySelector('h2').textContent=`費用試算總表（${labels[kind]}）`;
     empty.textContent=result.det.length ? result.det.map(x=>`${x.name} × ${x.qty}${x.unit}：$${fmt(x.sub)}`).join('\n') : '請先選擇服務項目';
     empty.style.whiteSpace='pre-line';
-    if(result.excess+result.rExcess>0)empty.textContent+=`\n超過給付額度部分：$${fmt(result.excess+result.rExcess)}，已計入自付額。`;
+    if(result.excess+result.rExcess>0) {
+      const warning=document.createElement('strong');
+      warning.className='fee-excess-warning';
+      warning.textContent=`超過給付額度部分：$${fmt(result.excess+result.rExcess)}，已計入自付額。`;
+      empty.append(document.createTextNode('\n'),warning);
+    }
     rawValue.textContent='$'+fmt(result.raw);selfValue.textContent='$'+fmt(result.self);govtValue.textContent='$'+fmt(result.gov);
     summary.setAttribute('aria-live','polite');
   }

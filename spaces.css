@@ -1,0 +1,29 @@
+/* Make the existing environment cards links without changing their layout. */
+.proto .page[data-p="about"] #env a.plate { text-decoration: none; }
+.proto .page[data-p="about"] #env a.plate:focus-visible {
+  outline: 3px solid var(--sage-ink);
+  outline-offset: 4px;
+}
+
+/* Space details inherit the shared inner-page palette, header and footer. */
+.proto .space-page .space-reading { padding-block: var(--inner-section-space); }
+.proto .space-page .space-reading > article { max-width: 920px; }
+.proto .space-page .space-photo { margin: 0; }
+.proto .space-page .space-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.proto .space-page .space-photo figcaption {
+  margin-top: 10px;
+  font-size: .88rem;
+  color: var(--ink2);
+}
+.proto .space-page .space-copy { margin-top: var(--inner-heading-gap); }
+.proto .space-page .space-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--inner-section-space);
+}
